@@ -1,0 +1,39 @@
+name: Eleventy-to-ghPages          # Name of github action
+
+# Triggers on a push to a branch. Manually by: workflow_dispatch (useful for debugging)
+on:
+  push: 
+    branches: [ "main" ]
+  workflow_dispatch:
+
+# what should be done
+jobs:
+  # we have only one stage and we name it 'build'
+  build:
+    runs-on: ubuntu-latest  # Docker image used to run the steps below
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - name: Branch checkout
+        uses: actions/checkout@v3 # change to v4?
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          # cache: 'npm' # Use this? See node.js.yml.txt
+
+      - name: Install 11ty dependencies from package.json and build
+        run: |
+          npm ci
+          npm run build
+# old was npm npx @11ty/eleventy
+      
+      - name: deploy  # deploy contents of output folder to the branch gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Needed to Create self-gen token to push files to repsitory
+          publish_dir: ./_site  # Eleventy default output folder: _site
