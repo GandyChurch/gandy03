@@ -30,7 +30,7 @@ export default function (eleventyConfig) {
 
 
 
-}
+};
 
 export const config = {
   // dataTemplateEngine: 'njk', // in original course, needed?
