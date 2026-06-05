@@ -1,0 +1,59 @@
+<section class="center pad16-t">
+  <h5 class="mgn0-tb">Quote</h5>
+  <p class="fs14 mgn0-tb">Week {{ currentWeek }} </p>
+
+{% set currentQuote = null %}
+
+{# Loop through the quotes array to find the matching week #}
+{% for item in quotes %}
+  {% if item.weeknbr == currentWeek %}
+    {% set currentQuote = item %}
+  {% endif %}
+{% endfor %}
+
+{# Display the quote if found, otherwise show a fallback #}
+{% if currentQuote %}
+  <p class="fs14 mgn0-t">
+    "{{ currentQuote.quote }}"<br>
+    <span class="fs12"><b>— {{ currentQuote.source }}</b></span>
+  
+{% else %}
+
+  <p class="fs14 mgn0-t">
+		...I want faithful love, not sacrifice. I want people to know God, not 
+		to bring burnt offerings.<br>
+	  <span class="fs12"><b>— Hosea 6:6 ERV</b></span>
+  </p>
+
+{% endif %}
+
+  <hr>
+</section><!-- end quote section -->
+
+
+
+
+
+
+<!--
+</p>
+    <p></p>
+    <cite>— </cite>
+  </blockquote>
+<p>No quote scheduled for week {{ currentWeek }}.</p>
+
+
+<section class="center pad16-t">
+  <h5 class="mgn0-tb">Quote</h5>
+
+  <p class="fs14 mgn0-tb">Week {{ currentWeek }} </p>
+
+  <p class="fs14 mgn0-t">
+    {{ quotes.quote }} <br>
+    ( - {{ quotes.source }} )
+  </p>
+
+  <hr>
+</section>
+-->
+<!-- end quote section -->

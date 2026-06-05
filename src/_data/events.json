@@ -1,0 +1,56 @@
+[
+		{
+			"date": "2025-09-09",
+			"pubDate": "Sept 9",
+			"place": "Lomax",
+			"address": "320 Darbytown Rd., Hohenwald, TN",
+			"phoneNbr": "931-796-5381",
+			"message": "Meal after the singing."
+		},
+		
+		{
+			"date": "2026-05-29",
+			"pubDate": "May 29",
+			"place": "Open",
+			"address": "",
+			"phoneNbr": "",
+			"message": ""
+		},		
+		
+		{
+			"date": "2026-06-05",
+			"pubDate": "June 5",
+			"place": "Iron City",
+			"address": "227 Chestnut St., Iron City, TN",
+			"phoneNbr": "(256) 762-7058",
+			"message": ""
+		},
+
+		{
+			"date": "2026-06-13",
+			"pubDate": "June 12-13",
+			"place": "Diana Singing",
+			"address": "2772 Diana Rd., Pulaski, TN",
+			"phoneNbr": "",
+			"message": ""
+		},
+
+		{
+			"date": "2026-06-19",
+			"pubDate": "June 19",
+			"place": "Wayne Furnance",
+			"address": "1595 Lawrenceburg Hwy, Waynesboro, TN",
+			"phoneNbr": "(931) 797-9270",
+			"message": ""
+		},
+
+		{
+			"date": "2033-12-12",
+			"pubDate": "",
+			"place": "",
+			"address": "",
+			"phoneNbr": "",
+			"message": ""
+		}
+
+	]

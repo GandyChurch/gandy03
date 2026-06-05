@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<br>
+<h2>{{ home.title }}</h2>
+
+<!-- GOSPEL MEETING PKG GOES HERE. When needed.
+- Copy include comment
+- Update mtg.html in include comment copy
+- Re-arrange Curly Brackets so they surround the percent symbols
+- Delete the opening and closing comment tags
+-->
+<!-- {} % include "partials/mtg-summer-2025.html" % -->
+ 
+
+<article class="pad16-t"> <!--beliefs-->
+
+<section id="beliefs" class="mgn0 pad0">
+
+	<div class="clear center pad16-t"> <!--Image with caption-->
+		<img class="study-img" 
+		src="{{ home.image }}" 
+		alt="{{ home.imageAlt }}">
+		<p class="study-p pad4-t"><b>{{ home.caption }}</b></p>
+		
+		<br>
+		<hr class="hr5-ridge-yellow">
+
+	</div><!--end Image-->
+
+	{{ content | safe }}
+
+</section> <!--end beliefs-->	
+</article>
+{% endblock %}
+
+
+
+
+	
+
+
+
+
+
+
+
+
+

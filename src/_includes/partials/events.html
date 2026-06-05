@@ -1,0 +1,103 @@
+<section class="pad16-t">
+  <h5 class="mgn0-tb">Upcoming Events</h5>
+  <p class="fs14 center">
+    Listen to Larry Murdock on the radio</br>
+	  every Sunday Morning at 7:45 a.m.</br>
+	  WDXE-1370 AM or WLX-105.3 FM
+	</p>
+
+
+	<br>
+	<h6 class="center">Friday Night Singing</h6>
+
+{# Get current time #}
+{% set now = '' | toTimestamp %}
+
+{# 21 days in milliseconds: 21 * 24 * 60 * 60 * 1000 = 1814400000 #}
+{% set limit = now + 1814400000 %}
+
+{# 2. Create a new list of only the events that fit the 21-day window #}
+{% set upcomingEvents = [] %}
+{% for event in events | sortByDate %}
+	{% set eventTime = event.date | toTimestamp %}
+  {# Then, only show items within our 21-day window #}
+  {% if eventTime >= now and eventTime <= limit %}
+    {% set upcomingEvents = (upcomingEvents.push(event), upcomingEvents) %}
+  {% endif %}
+{% endfor %}
+
+{# 3. Use an if/else to show the list or the message #}
+{% if upcomingEvents.length > 0 %}
+
+  {% for event in upcomingEvents %}
+    <p class="fs14">
+			<b>- {{event.pubDate}}:&nbsp;&nbsp;7:00 p.m.,</b>&nbsp;&nbsp; {{ event.place }}<br>
+			{{event.address}}<br>
+			{{event.phoneNbr}}<br>
+			{{event.message}}
+		</p>
+  {% endfor %}
+
+{% else %}
+  <p class="fs14">No singing dates for the next 3 weeks in database.</p>
+{% endif %}
+  
+	<hr>
+</section><!-- end Events Section-->
+	
+
+  
+  
+		
+<!--
+<ul>
+{% for event in events %}
+  {% set eventTime = event.date | toTimestamp %}
+  
+  {% if eventTime >= now and eventTime <= limit %}
+    <li>{{ event.name }} – {{ event.date }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+-->
+
+
+
+
+<!--
+			<p class="fs14 mgn4-b">
+				<b>Oct 10:&nbsp;&nbsp;7:00 p.m.,</b>&nbsp;&nbsp;Campbellsvivlle<br>
+				10416 Campbellsvivlle Rd., Pulaski, TN<br>
+        931-964-4993
+			</p>
+
+		  <p class="fs14 mgn4-b">
+				<b>Oct 17:&nbsp;&nbsp;7:00 p.m.,</b>&nbsp;&nbsp;Salem<br>
+				505 Westpoint Rd., Lawrenceburg, TN<br>
+        931-762-2403
+			</p>
+
+
+
+			<p class="fs14 mgn4-b">
+				<b>Apr 19:&nbsp;&nbsp;</b>
+				Friday Night Singing will be at East Hill, Pulaski, TN at 7:00 p.m.
+			</p>
+
+			<p class="fs14 mgn4-b">
+				<b>Apr 22-26:&nbsp;&nbsp;</b>
+				Searching the Scriptures with Southside, 6:05 a.m. on WDXE-1370 AM or 
+				WLX-105.3 FM.
+			</p>
+			
+			<p class="fs14 mgn4-b">
+				<b>Apr 26:&nbsp;&nbsp;</b>
+				Friday Night Singing will be at Eastwood, Florence, AL at 7:00 p.m.
+			</p>
+			
+			<p class="fs14 mgn4-b">
+				<b>Apr 29-May 3:&nbsp;&nbsp;</b>
+				Searching the Scriptures with Leoma, 6:05 a.m. on WDXE-1370 AM or 
+				WLX-105.3 FM.
+			</p>
+-->
