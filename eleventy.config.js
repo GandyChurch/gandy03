@@ -37,5 +37,5 @@ export const config = {
   markdownTemplateEngine: 'njk',
   htmlTemplateEngine: 'njk',
   
-  pathPrefix: "gandycoc",
+  pathPrefix: "gandy03",
 };
